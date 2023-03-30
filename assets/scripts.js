@@ -30,7 +30,6 @@ var answerButtonsElement = document.getElementById("answer-buttons");
 var questionElement = document.getElementById('question');
 var timer;
 var timerCount;
-var nextQuestion;
 var currentQuestionIndex;
 
 
@@ -90,8 +89,10 @@ function startGame() {
 }
 
 function showQuestion() {
+// this identifies the element in the html and places the question in it.
     questionElement.innerText = question[currentQuestionIndex].question
     for (var i = 0; i < question[currentQuestionIndex].answer.length; i++){
+// this identifies the answer-button elements children and places answer options in it.
         answerButtonsElement.children[i].textContent = question[currentQuestionIndex].answer[i].text;
      answerButtonsElement.children[i].value=question[currentQuestionIndex].answer[i].correct 
      answerButtonsElement.children[i].onclick=checkAnswer  
@@ -105,10 +106,6 @@ function checkAnswer(event) {
     }
     else alert("Correct!");
 
-    currentQuestionIndex++
-    if (i > currentQuestionIndex ) {
-        
-    }
     showQuestion()
 }
 
@@ -118,48 +115,9 @@ function startTimer() {
         timerCount--;
         timerElement.textContent = timerCount;
         if (timerCount === 0) {
-            clearInterval(timer);
             timer.textcontent = "Times Up!";
         }
     }, 1000);
 }
 
 
-
-
-
-    // // var library = [
-    //     // {
-    //         title: "LOTR",
-    //         author: "JR",
-    //         publicationDates: [
-    //             {
-    //                 year: 2013,
-    //                 company: "penguin"
-    //             }
-    //         ]
-    //     },
-    //     {
-    //         title: "LOTR",
-    //         author: "JR",
-    //         publicationDates: [
-    //             {
-    //                 year: 2013,
-    //                 company: "penguin"
-    //             }
-    //         ]
-    //     },
-    //     {
-    //         title: "LOTR",
-    //         author: "JR",
-    //         publicationDates: [
-    //             {
-    //                 year: 2013,
-    //                 company: "penguin"
-    //             }
-    //         ]
-    //     },
-
-    // ]
-
-    // libray[0].author

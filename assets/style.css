@@ -3,12 +3,14 @@
 }
 
 body {
+    display: flex;
+    justify-content: center;
     background-color: rgb(191, 231, 191);
     
 }
 
 .header {
-    display:block;
+    display:inline-block;
     min-width: 100%;
     font-size: 12px;
 }
@@ -17,10 +19,24 @@ body {
 }
 .header ul li {
     display: inline-block;
-    margin-inline-start: 0;
-    margin-inline-end: 0;
-}
-a {
     text-decoration: none;
-    color:purple;
+    color: purple;
+}
+#question-container {
+    position: absolute;
+    top: 50%;
+    left: 50% ;
+}
+
+#question {
+    font-style: bold;
+    font-size: 24px;
+    color: purple;
+
+}
+
+.btn {
+    padding:20px;
+    background-color:blue;
+    color: white;
 }
