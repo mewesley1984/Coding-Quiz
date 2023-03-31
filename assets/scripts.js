@@ -31,7 +31,7 @@ var questionElement = document.getElementById('question');
 var timer;
 var timerCount;
 var currentQuestionIndex;
-
+var userNameEl=document.getElementById("name")
 
 startButton.addEventListener("click",startGame);
 var question = [
@@ -120,4 +120,23 @@ function startTimer() {
     }, 1000);
 }
 
+function getScore() {
+    var storedScore = localStorage.getItem("score")
+}
+    // use json stringify here
+
+function storehighScore(){
+  var nameUser= userNameEl.value();
+    var userInfo = {
+        userName: nameUser,
+        userScore: secondCount,
+    };
+   var highScorer = JSON.stringify(userInfo);
+
+   localStorage.setItem("score",highScorer);
+    //  get userscore and name
+
+    // make a user object with user score and name
+    // json stringify object into local storage (items in storage need to be strings)
+}
 
