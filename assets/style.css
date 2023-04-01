@@ -66,3 +66,9 @@ li {
 #final-score {
     font-weight: bolder;
 }
+#high-scores {
+    color: blue;
+    font-size: 20px;
+    padding: 10px;
+    
+}
