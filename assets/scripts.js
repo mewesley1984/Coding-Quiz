@@ -55,6 +55,7 @@ function startGame() {
     // TODO: reset game state 
     welcomeElement.className = "hide"
     quizElement.className = "show"
+    questionContainerElement.className = "show"
     answerButtonsElement.className ="show"
     startTimer()
     showQuestion()
@@ -173,7 +174,15 @@ function saveScore() {
 }
 
 function showScores() {
-    var users = JSON.parse(localStorage.getItem("users"))
-    highScoresElement.textContent = JSON.stringify(users)
+    var users = JSON.parse(localStorage.getItem("users"));
+  
+    highScoresElement.innerHTML =
+      "<table><th>User</th><th>Score</th>" +
+      // iterate over users and output a table row
+      users
+        .map(function (user) {
+          return "<tr><td>" + user.name + "</td> <td>" + user.score + "</td></tr>";
+        })
+        .join("") +
+      "</table>";
 }
-
