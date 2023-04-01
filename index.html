@@ -10,14 +10,14 @@
 </head>
 
 <body>
-    <header>
+    <nav>
         <ul>
             <li class="high-score"><a href="#">Show High Scores</a></li>
             <li class="timer">Time: 75</li>
         </ul>
-    </header>
+    </nav>
 
-    <section id="welcome-container">
+    <section id="welcome-container" class="show">
         <h1>CODING QUIZ CHALLENGE</h1>
         <H2>Test your knowledge of Javascript! Try to answer the following Javascript-related questions within the time
             limit. Incorrect answers will penalize your score/time by ten seconds!</H2>
@@ -26,7 +26,7 @@
     <section id="quiz-container">
         <div id="question-container">
             <h2 id="question"></h2>
-            <div id="answer-buttons">
+            <div id="answer-buttons" class="hide">
                 <button class="btn"></button>
                 <button class="btn"></button>
                 <button class="btn"></button>
