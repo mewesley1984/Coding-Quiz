@@ -12,32 +12,36 @@
 <body>
     <header>
         <ul>
-            <li class="high-score">High Score</li>
+            <li class="high-score"><a href="#">Show High Scores</a></li>
             <li class="timer">Time: 75</li>
         </ul>
     </header>
 
-    <section id="page-1">
+    <section id="welcome-container">
         <h1>CODING QUIZ CHALLENGE</h1>
         <H2>Test your knowledge of Javascript! Try to answer the following Javascript-related questions within the time
             limit. Incorrect answers will penalize your score/time by ten seconds!</H2>
         <button id="start-btn" class="start-game">START QUIZ</button>
     </section>
-    <section id="page-2">
+    <section id="quiz-container">
         <div id="question-container">
             <h2 id="question"></h2>
-            <div id="answer-buttons" class="answer-buttons">
+            <div id="answer-buttons">
                 <button class="btn"></button>
                 <button class="btn"></button>
                 <button class="btn"></button>
                 <button class="btn"></button>
             </div>
+        <div id="status"></div>
         </div>
-        <div id="end-game">
+        <div id="end-game" class="hide">
             <h2>All Done!</h2>
-            <p>Your final score is </p>
-            <input type ="text" placeholder = "Enter Name" id ="name"
-        </div>    
+            <p>Your final score is <span id="final-score"></span></p>
+            <input type ="text" placeholder = "Enter Name" id ="name">
+            <button id="save-score">Save Score</button>
+        </div>
+        <div id="high-scores">
+        </div>
     </section>
 
     
