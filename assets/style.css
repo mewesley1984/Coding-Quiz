@@ -3,14 +3,11 @@
 }
 
 body {
-    display: flex;
     justify-content: center;
     background-color: rgb(191, 231, 191);
-    
 }
 
 .header {
-    display:inline-block;
     min-width: 100%;
     font-size: 12px;
 }
@@ -18,25 +15,30 @@ body {
     list-style-type: none;
 }
 .header ul li {
-    display: inline-block;
     text-decoration: none;
     color: purple;
 }
 #question-container {
-    position: absolute;
-    top: 50%;
-    left: 50% ;
+    margin: auto;
+    width: 50%;
 }
 
 #question {
     font-style: bold;
     font-size: 24px;
     color: purple;
-
 }
 
 .btn {
     padding:20px;
     background-color:blue;
     color: white;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
 }
