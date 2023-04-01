@@ -174,6 +174,15 @@ function saveScore() {
 
 function showScores() {
     var users = JSON.parse(localStorage.getItem("users"))
-    highScoresElement.textContent = JSON.stringify(users)
+    highScoresElement.innerHTML = JSON.stringify(users)
+    highScoresElement.className = 'show'
+    highScoresElement.innerHTML =
+    "<table><th>User</th><th>Score</th>" +
+    users
+        .map(function (user) {
+            return "<tr><td>" +user.name + "</td> <td>" +user.score + "</td></tr>";
+        })
+        .join("") +
+        "</table>";
 }
 
