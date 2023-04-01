@@ -56,6 +56,7 @@ function startGame() {
     welcomeElement.className = "hide"
     quizElement.className = "show"
     questionContainerElement.className = "show"
+    answerButtonsElement.className ="show"
     startTimer()
     showQuestion()
 }
