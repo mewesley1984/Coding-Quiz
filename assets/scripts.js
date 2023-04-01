@@ -170,6 +170,9 @@ function saveScore() {
     users.push(userInfo)
 
     localStorage.setItem("users", JSON.stringify(users))
+    endGameElement.className = "hide"
+    showScores()
+    
 }
 
 function showScores() {
