@@ -3,35 +3,27 @@
 }
 
 body {
-    justify-content: center;
     display: border-box;
     background-color: rgb(191, 231, 191);
+    
 }
 
 .nav {
     display:block;
     min-width: 100%;
 }
-
 .nav ul {
     margin: 0;
     padding: 0;
     list-style-type: none
 }
-
-.header ul li {
+li {
     display: inline;
     text-decoration: none;
     font-size: 20px;
     font:bolder;
     color: purple;
 }
-
-#question-container {
-    margin: auto;
-    width: 50%;
-}
-
 .timer {
     float:right;
 }
@@ -44,12 +36,14 @@ body {
 #quiz-container {
     display: flex;
     justify-content: center;
+   
 }
 
 #question {
     font-style: bold;
     font-size: 24px;
     color: purple;
+
 }
 #start-btn {
     padding:20px;
@@ -66,7 +60,6 @@ body {
 .hide {
     display: none;
 }
-
 .show {
     display: block;
 }

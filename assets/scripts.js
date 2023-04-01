@@ -180,7 +180,9 @@ function showScores() {
       "<table><th>User</th><th>Score</th>" +
       // iterate over users and output a table row
       users
-        .map((u) => `<tr><td>${u.name}</td> <td>${u.score}</td></tr>`)
+        .map(function (user) {
+          return "<tr><td>" + user.name + "</td> <td>" + user.score + "</td></tr>";
+        })
         .join("") +
       "</table>";
-  }
+}
