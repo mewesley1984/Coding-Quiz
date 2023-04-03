@@ -35,7 +35,7 @@ var endGameElement = document.querySelector('#end-game');
 var highScoreLink = document.querySelector('.high-score a');
 var highScoresElement = document.querySelector('#high-scores');
 var finalScoreElement = document.querySelector('#final-score')
-
+// create an object variable for userScore
 const gameState = {
     currentQuestion: 0,
     score: 0,
@@ -43,6 +43,7 @@ const gameState = {
 }
 var userNameElement = document.querySelector("#name");
 var isLocalStorageEmpty = localStorage.getItem("users") === null
+
 if(isLocalStorageEmpty) {
     localStorage.setItem("users", "[]")
 }
@@ -52,7 +53,7 @@ saveScoreButton.addEventListener("click", saveScore);
 highScoreLink.addEventListener("click", showScores)
 
 function startGame() {
-    // TODO: reset game state 
+//hides welcome to the page and shows quiz when start button is clicked
     welcomeElement.className = "hide"
     quizElement.className = "show"
     answerButtonsElement.className ="show"
@@ -61,12 +62,14 @@ function startGame() {
 }
 
 function showNextQuestion() {
+    // goes to next question
     gameState.currentQuestion++
     showQuestion()
 }
 
 function showQuestion() {
-    const questions = [
+    // create questions object to run the quiz
+    var questions = [
         {
             question: "Commonly used data types DO NOT include:",
             answer: [
@@ -113,8 +116,11 @@ function showQuestion() {
     question = questions[gameState.currentQuestion]
     // this identifies the element in the html and places the question in it.
 
+    // this lets the computer know when the game is over and to show final score
     if(gameState.currentQuestion + 1 >= questions.length) {
+        // hides the quiz container
         questionContainerElement.className = 'hide'
+        // shows the final score container
         endGameElement.className = 'show'
         finalScoreElement.innerText = gameState.score
         return
@@ -123,6 +129,7 @@ function showQuestion() {
     for (var i = 0; i < question.answer.length; i++) {
         // this identifies the answer-button elements children and places answer options in it.
         answerButtonsElement.children[i].textContent = question.answer[i].text;
+        // this identifies the answers and places a value (true or false in it)
         answerButtonsElement.children[i].value = question.answer[i].isCorrect
         answerButtonsElement.children[i].onclick = checkAnswer
     }
@@ -145,7 +152,7 @@ function checkAnswer(event) {
 
 
 function startTimer() {
-    const timerId = setInterval(function () {
+    var timerId = setInterval(function () {
         gameState.secondsRemaining--;
         timerElement.textContent = gameState.secondsRemaining;
         if (gameState.secondsRemaining <= 0) {
@@ -156,17 +163,20 @@ function startTimer() {
 }
 
 function getScore() {
+    // grabs score from local storage
     var storedScore = localStorage.getItem("score")
 }
 
 function saveScore() {
+    // nameUser grabs user input from webpage
     var nameUser = userNameElement.value;
+    // userInfo creates object for user name and their score
     var userInfo = {
         name: nameUser,
         score: gameState.score,
     };
     var users = JSON.parse(localStorage.getItem("users"))
-
+    // this pushes news users into the userInfo array
     users.push(userInfo)
 
     localStorage.setItem("users", JSON.stringify(users))
@@ -176,9 +186,12 @@ function saveScore() {
 }
 
 function showScores() {
+    // grabs users and their scores from local storage
     var users = JSON.parse(localStorage.getItem("users"))
+    // places the userInfo into the browser and shows allows the high-score element to be seen.
     highScoresElement.innerHTML = JSON.stringify(users)
     highScoresElement.className = 'show'
+    // creates table for high scores
     highScoresElement.innerHTML =
     "<table><th>User</th><th>Score</th>" +
     users
